@@ -28,8 +28,8 @@ const server = http.createServer((req,res) => {
             }
         })
         
-    }else if (req.url == '/test'){
-        fs.readFile('./view/test.html',null,(error,content) => {
+    } else if (req.url == '/test'){
+        fs.readFile('./view/test.html', null , (error,content) => {
             if(error){
                 
                 res.writeHead(404)
