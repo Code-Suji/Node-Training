@@ -4,6 +4,9 @@ const members = require('../../model/member')
 
 const router = express.Router()
 
+
+const Members = require('../../model/member');
+
 router.get("/", (req, res) => {
     console.log(`Inside api members ...`);
     res.json(members.getAll());
@@ -27,5 +30,20 @@ router.get("/", (req, res) => {
   
     console.log(`Inside api members ...`);
   });
+
+  //API to Add new member
+
+  router.post ('/',(req,res)=>{
+      
+      const result = Members.addNew( req.body)
+      console.table(req.body)
+      if(result){
+        res.json({message:"New User Added "})
+      }
+      else{
+        res.status(400).json({message:"Failed to add new user "})
+      }
+      
+  })
 
   module.exports = router
