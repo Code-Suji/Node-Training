@@ -1,36 +1,29 @@
-const members = require(`./members.json`)
-const fs =require('fs')
-const uuid = require('uuid');
+const members = require(`../public/members.json`);
+const fs = require("fs");
+const uuid = require("uuid");
 
-let Members = {}
+let Members = {};
 
-Members.getAll = ()=>{
-    return members
-}
-Members.getMemberById = (id)=>{
-    return members.filter( x=> x.id === id)
-}
+Members.getAll = () => {
+    return members;
+};
+Members.getMemberById = (id) => {
+    return members.filter((x) => x.id === id);
+};
 
-Members.addNew = (memberObj) => {
-    const id = uuid.v4()
-    memberObj.id = id
-    let obj = JSON.parse(members)
-    obj.push(memberObj)
-    let data=JSON.stringify(obj)
-    // console.table(members)
-    
-    fs.writeFile(`./members.json`,data,(err)=>{
-        if(err){
-            throw err
-            console.log(err)
-            return false    
+Members.addNew = async (memberObj) => {
+    const id = uuid.v4();
+    memberObj.id = id;
+    members.push(memberObj);
+    await fs.writeFile(`public/members.json`,JSON.stringify(members),(err) => {
+            if (err) {
+                console.log(err);
+                return false;
+            } else {
+                return true;
+            }
         }
-        else{
-            return true
-        }
-    })
-    console.table(JSON.stringify(obj))
+    );
+};
 
-}
-
-module.exports = Members
+module.exports = Members;

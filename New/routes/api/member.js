@@ -36,7 +36,6 @@ router.get("/", (req, res) => {
   router.post ('/',(req,res)=>{
       
       const result = Members.addNew( req.body)
-      console.table(req.body)
       if(result){
         res.json({message:"New User Added "})
       }
