@@ -176,6 +176,7 @@ class Person1 implements IPerson{
     id : number
 
     name : string
+    
 
     /**
      * public
