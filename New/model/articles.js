@@ -1,8 +1,15 @@
+
+/**
+ * importing the data file required
+ */
 const articles = require(`../public/articles.json`);
-const fs = require("fs");
-const uuid = require("uuid");
 
 let Articles = {};
+
+/**
+ * list all articles from data file
+ * @returns articles data
+ */
 
 Articles.getAll = () => {
   return articles;

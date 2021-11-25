@@ -11,7 +11,6 @@ const router = express.Router()
 });
 
 router.get("/add", (req, res) => {
-  // res.end("App is running");
   res.render("add_article", { title:"Add view"})
 });
 
