@@ -1,0 +1,11 @@
+extends layout 
+block content 
+    h1 Articles 
+    table.table
+      tr
+        td Article Name 
+        td Article Description
+      each article , i in articles 
+        tr
+          td= article.title 
+          td= article.desc
