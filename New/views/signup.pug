@@ -1,0 +1,39 @@
+extends layout
+block content
+  h1 Sign Up
+  h1 #{title}
+  h1.alert.alert-primary #{message}
+  h1.alert.alert-danger #{alert}
+  table.table.tablestriped.card
+    form(action='/user/saveForm', method="post")
+      tr
+        td Name 
+        td 
+          .input-field.col.s6   
+            input#name.validate(type="text",name="name")
+            label(for="name")
+            br
+      tr
+        td Password 
+        td 
+          .input-field.col.s6   
+            input#password.validate(type="text",name="password")
+            label(for="password") 
+            br
+      tr
+        td Email
+        td 
+          .input-field.col.s6   
+            input#email.validate(type="text",name="email")
+            label(for="email") 
+            br
+      tr
+        td Phone 
+        td 
+          .input-field.col.s6   
+            input#phone.validate(type="text",name="phone")
+            label(for="phone") 
+            br        
+      tr 
+        td
+          button.btn.btn-danger(type="submit") Submit

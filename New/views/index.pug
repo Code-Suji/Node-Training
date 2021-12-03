@@ -1,11 +1,12 @@
 extends layout 
 block content 
-    h1 Articles 
-    table.table
+  h1 Articles 
+  h2 #{title}
+  table.table
+    tr
+      td Article Name 
+      td Article Description
+    each article , i in articles 
       tr
-        td Article Name 
-        td Article Description
-      each article , i in articles 
-        tr
-          td= article.title 
-          td= article.desc
+        td= article.title 
+        td= article.desc

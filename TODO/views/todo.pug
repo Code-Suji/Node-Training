@@ -1,0 +1,33 @@
+extends layout 
+
+block content
+  h1 TODO list
+  h1 #{message}
+  h1 #{alert}
+  table.table.tablestriped.card
+    form(action='/todo/add', method="post")
+      tr
+        td 
+          .input-field.col.s6   
+            input#email.validate(type="text",name="item")
+            label(for="item") 
+            br
+        td 
+          button.btn.btn-danger(type="submit") ADD
+
+  table.table.tablestriped.card
+    form(action='', method="post")
+      tr 
+        td TODO ITEM 
+        td 
+      each to,i in itemList
+        tr
+          td= to.item 
+          td 
+            button.btn.btn-danger(type="submit") DELETE  
+          br
+
+
+
+
+
